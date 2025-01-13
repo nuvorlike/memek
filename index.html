@@ -5,7 +5,7 @@
     <link rel="icon" type="image/x-icon" href="pages/image/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeAI Agent</title>
+    <title>MantisAI Terminal</title>
     <style>
         body {
             margin: 0;
@@ -161,6 +161,112 @@
             .button {
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
+            }
+        }
+
+                /* Features Section */
+                .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
+            background-color: #222;
+        }
+
+        .feature {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px;
+            text-align: left;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .feature h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .feature p, .feature li {
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .social-links {
+            margin-bottom: 10px;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        footer .social-links a:hover {
+            color: #ff6a00;
+        }
+
+        footer p {
+            color: #bbbbbb;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            .cta-button {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero .logo img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 0.8em;
+            }
+
+            .features {
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+
+            .feature {
+                width: 100%;
+                margin: 10px 0;
             }
         }
     </style>
