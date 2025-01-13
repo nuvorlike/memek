@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeAI Agent</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            color: #00ff00;
+            background: black;
+        }
+
+        /* Background hacker animation */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('pages/image/1.webp') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Scrolling code effect */
+        @keyframes scroll {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        .code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                transparent 0%,
+                rgba(0, 255, 0, 0.2) 50%,
+                transparent 100%
+            );
+            background-size: auto 20px;
+            animation: scroll 5s linear infinite;
+            z-index: -2;
+        }
+
+        /* Center content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 0 0 10px #00ff00;
+            animation: flicker 1.5s infinite;
+        }
+
+        .content p {
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        /* Buttons container */
+        .buttons {
+            display: flex;
+            gap: 1rem; /* Space between buttons */
+            justify-content: center;
+        }
+
+        /* Button styling */
+        .button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            color: #00ff00;
+            text-decoration: none;
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background: #00ff00;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        /* Pop-up styling */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: black;
+            border: 2px solid #00ff00;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ff00;
+            color: #00ff00;
+            text-align: center;
+            z-index: 100;
+            display: none;
+        }
+
+        .popup h2 {
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .popup button {
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            color: black;
+            background: #00ff00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .popup button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Flicker effect */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="code"></div>
+    <div class="content">
+        <h1>MantisAI Terminal</h1>
+        <p>Join the AI-powered crypto revolution. Press 'Explore' to dive into our innovative technology!</p>
+        <div class="buttons">
+            <a href="pages/home.html" class="button">Explore</a>
+            <button class="button" onclick="showPopup()">Roadmap</button>
+        </div>
+    </div>
+
+    <!-- Pop-up -->
+    <div class="popup" id="roadmapPopup">
+        <h2>Roadmap</h2>
+        <section class="features">
+            <div class="feature">
+                <h2>Phase 1: Launch Phase</h2>
+                <p> Website Unveiling</p>
+                <li>Reveal the official website to serve as the central hub for all MantisAI information, updates, and community engagement.</li>
+                <p> Token Debut</p>
+                <li>The official introduction of MantisAI token to the market, setting the stage for a decentralized ecosystem.</li>
+                <p> Social Media Engagement</p>
+                <li>Establishing a strong presence across key social media platforms to connect with our growing community and share valuable insights.</li>
+                <p> Community Growth & Activation</p>
+                <li>Cultivating a dedicated and passionate community through events, interactive discussions, and exclusive content to build long-term engagement.</li>
+    
+    
+            </div>
+            <div class="feature">
+                <h2>Phase 2: Expansion</h2>
+                <p> Next-Generation AI Capabilities</p>
+                <li>Introducing cutting-edge AI features that push the boundaries of market analysis and decision-making support.</li>
+                <p> Strategic Partnership Network</p>
+                <li>Building strong alliances with key players in the crypto and blockchain ecosystems to amplify reach and drive collaborative growth.</li>
+                <p> Advanced Data Insights</p>
+                <li>Expanding the platform analytics tools to deliver deeper, more actionable insights for users, enhancing their trading strategies.</li>
+                <p> Broader Market Connectivity</p>
+                <li>Seamlessly integrating with additional market platforms and networks to broaden access to data and improve trading opportunities.</li>
+    
+            </div>
+            <div class="feature">
+                <h2>Phase 3: Evolution</h2>
+                <p>AI-Powered Trading Assistant</p>
+                <li>Introducing an intelligent trading bot powered by advanced AI to automate and optimize trading strategies for all users.</li>
+                <p>Global Market Reach</p>
+                <li>Expanding our footprint across international markets, engaging with global crypto communities and adapting to regional demands.</li>
+                <p>Ecosystem Enhancement</p>
+                <li>Evolving the BitPulseAI ecosystem with additional tools, services, and integrations that empower users to navigate and grow within the crypto space</li>
+            </div>
+        </section>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Show the pop-up
+        function showPopup() {
+            document.getElementById('roadmapPopup').style.display = 'block';
+        }
+
+        // Close the pop-up
+        function closePopup() {
+            document.getElementById('roadmapPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
