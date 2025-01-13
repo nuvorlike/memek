@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/pages/home\.html$
+RewriteRule ^$ / [R=301,L]
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="image/mantis.png">
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MantisAI Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background: url('image/bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #00ff00;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px; /* Ensure there's padding on small screens */
+        }
+
+        /* Terminal Animation */
+        .terminal {
+            text-align: center;
+            font-size: 2rem;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ff00;
+            margin-top: 50px;
+        }
+
+        .terminal h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: flicker 1.5s infinite;
+            margin-bottom: 1rem;
+        }
+
+        .terminal p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            animation: flicker 1.5s infinite;
+        }
+
+        /* About Text with Background */
+        .about {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 10px #00ff00;
+            animation: flicker 1.5s infinite;
+        }
+
+        /* Bottom Buttons */
+        .buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: #00ff00;
+            background-color: transparent;
+            border: 2px solid #00ff00;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 0.5rem;
+        }
+
+        .button:hover {
+            background-color: #00ff00;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        /* Footer - Positioned at the bottom */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            color: #888;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 -1px 10px #00ff00;
+        }
+
+        /* Time Display */
+        .time {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            z-index: 10;
+        }
+
+        /* Media Queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .terminal h1 {
+                font-size: 2.5rem;
+            }
+
+            .terminal p {
+                font-size: 1.2rem;
+            }
+
+            .about {
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                max-width: 90%;
+            }
+
+            .buttons .button {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .footer {
+                font-size: 0.9rem;
+                margin-top: 20px;
+            }
+
+            .time {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Further adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .terminal h1 {
+                font-size: 2rem;
+            }
+
+            .terminal p {
+                font-size: 1rem;
+            }
+
+            .about {
+                font-size: 1rem;
+                padding: 0.3rem;
+                max-width: 95%;
+            }
+
+            .buttons .button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Terminal Content -->
+    <div class="terminal">
+        <h1>MantisAI Terminal</h1>
+        <p>Welcome to the dark web. Access granted.</p>
+    </div>
+
+    <!-- About Text with Background -->
+    <div class="about">
+        <p>> Initiating MantisAI launch protocol...</p>
+        <p>> Generating groundbreaking AI designs...</p>
+        <p>> Stay tuned for more updates...</p>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons">
+        <a href="https://x.com/MantisAI_" class="button">Twitter</a>
+        <a href="https://t.me/MantisAITerminal" class="button">Telegram</a>
+        <a href="https://x.com/MantisAI_" class="button">Buy</a> <!-- New Buy Button -->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 MantisAI. All rights reserved.</p>
+    </div>
+
+    <!-- Time Display -->
+    <div class="time" id="time"></div>
+
+    <script>
+        // Time Display (Current time in New York timezone)
+        function updateTime() {
+            const now = new Date();
+            const options = { timeZone: 'America/New_York', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleString('en-US', options);
+            document.getElementById("time").textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000); // Update time every second
+    </script>
+</body>
+</html>
