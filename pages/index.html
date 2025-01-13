@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/pages/home\.html$
+RewriteRule ^$ / [R=301,L]
+
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="image/mantis.png">
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
